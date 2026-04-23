@@ -59,4 +59,4 @@ jobs:
         else
           git commit -m "Update generated files" || true
         fi
-        git push --set-upstream origin generated
+        git push --set-upstream origin generated -f
