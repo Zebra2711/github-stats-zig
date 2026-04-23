@@ -54,5 +54,9 @@ jobs:
       run: |
         git add .
         # Force the build to succeed, even if no files were changed
-        git commit -m 'Update generated files' || true
+        if git rev-parse HEAD >/dev/null 2>&1; then
+          git commit --amend --no-edit || true
+        else
+          git commit -m "Update generated files" || true
+        fi
         git push --set-upstream origin generated
